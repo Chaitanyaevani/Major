@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nephropathy Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('static/BackGround2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 10px; /* Reduced padding */
+        }
+        .form-wrapper {
+            background-color: rgba(0, 0, 0, 0.6); /* Slightly less transparent */
+            padding: 15px; /* Reduced padding */
+            border-radius: 8px;
+            width: 100%;
+            max-width: 1000px; /* Reduced maximum width */
+        }
+        h1 {
+            font-size: 24px;
+            color: green;
+            margin-bottom: 15px; /* Reduced bottom margin */
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+            justify-content: space-between;
+            margin-bottom: 10px; /* Reduced bottom margin */
+        }
+        .form-group div {
+            width: 48%; /* Adjusted width for columns */
+        }
+        label {
+            font-size: 16px;
+            color: white;
+            display: block;
+            margin-bottom: 3px; /* Reduced bottom margin */
+        }
+        input, select {
+            padding: 6px; /* Reduced padding */
+            font-size: 14px;
+            width: 100%; /* Full width of column */
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .button {
+            margin-top: 15px; /* Reduced top margin */
+            padding: 8px 16px; /* Reduced padding */
+            font-size: 16px; /* Reduced font size for the button */
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Full width for submit button */
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Nephropathy Prediction Form</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group">
+                    <div>
+                        <label for="age">Age</label>
+                        {{ form.age() }}
+                    </div>
+                    <div>
+                        <label for="diabetes_duration">Diabetes duration (y)</label>
+                        {{ form.diabetes_duration() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="height">Height (cm)</label>
+                        {{ form.height() }}
+                    </div>
+                    <div>
+                        <label for="weight">Weight (kg)</label>
+                        {{ form.weight() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="bmi">BMI (kg/m2)</label>
+                        {{ form.bmi() }}
+                    </div>
+                    <div>
+                        <label for="sbp">SBP (mmHg)</label>
+                        {{ form.sbp() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="dbp">DBP (mmHg)</label>
+                        {{ form.dbp() }}
+                    </div>
+                    <div>
+                        <label for="hba1c">HbA1c (%)</label>
+                        {{ form.hba1c() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="fbg">FBG (mmol/L)</label>
+                        {{ form.fbg() }}
+                    </div>
+                    <div>
+                        <label for="tg">TG (mmoll)</label>
+                        {{ form.tg() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="c_peptide">C-peptide (ng/ml)</label>
+                        {{ form.c_peptide() }}
+                    </div>
+                    <div>
+                        <label for="tc">TC (mmoll)</label>
+                        {{ form.tc() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="hdlc">HDLC (mmoll)</label>
+                        {{ form.hdlc() }}
+                    </div>
+                    <div>
+                        <label for="ldlc">LDLC (mmoll)</label>
+                        {{ form.ldlc() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="retinopathy">Diabetic retinopathy (DR)</label>
+                        {{ form.retinopathy() }}
+                    </div>
+                    <div>
+                        <label for="insulin">Insulin</label>
+                        {{ form.insulin() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="metformin">Metformin</label>
+                        {{ form.metformin() }}
+                    </div>
+                    <div>
+                        <label for="lipid_lowering_drugs">Lipid lowering drugs</label>
+                        {{ form.lipid_lowering_drugs() }}
+                    </div>
+                </div>
+
+                {{ form.submit(class="button") }}
+            </form>
+        </div>
+    </div>
+</body>
+</html>

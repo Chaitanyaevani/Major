@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/BackGround2.jpg'); /* Adjust path relative to the 'static' folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            margin-bottom: 20px; /* Added margin bottom for spacing */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        p a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #4caf50; /* Green color for headings */
+        }
+
+        .section p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .about-us {
+            margin-top: auto;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .about-us:hover {
+            text-decoration: underline;
+        }
+
+        .contact-us {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="contact-us">Contact Us</h2>
+
+    <div class="container">
+        <h1>User Login</h1>
+        <form action="/login" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
+
+    <div class="section">
+        <h2>About Us</h2>
+        <p>Our web application is dedicated to helping individuals detect various complications associated with diabetes.</p>
+        <p>The functionality of our web application includes the following:</p>
+        <ul>
+            <li>User needs to log in or register to access the system.</li>
+            <li>User can upload their medical scans for analysis.</li>
+            <li>We also provide preventive measures based on the scan results.</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('{{ url_for("static", filename="BackGround2.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 10px;
+        }
+        .form-wrapper {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            font-size: 24px;
+            color: green;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .form-group div {
+            width: 48%;
+        }
+        label {
+            font-size: 16px;
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            padding: 6px;
+            font-size: 14px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .button {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Cardiovascular Disease Prediction</h1>
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                
+                <div class="form-group">
+                    <div>
+                        <label for="male">Gender (Male: 1, Female: 0)</label>
+                        {{ form.male() }}
+                    </div>
+                    <div>
+                        <label for="age">Age</label>
+                        {{ form.age() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="education">Education Level (1-4)</label>
+                        {{ form.education() }}
+                    </div>
+                    <div>
+                        <label for="currentSmoker">Current Smoker</label>
+                        {{ form.currentSmoker() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="cigsPerDay">Cigarettes Per Day</label>
+                        {{ form.cigsPerDay() }}
+                    </div>
+                    <div>
+                        <label for="BPMeds">BP Medications</label>
+                        {{ form.BPMeds() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="prevalentStroke">Prevalent Stroke</label>
+                        {{ form.prevalentStroke() }}
+                    </div>
+                    <div>
+                        <label for="prevalentHyp">Prevalent Hypertension</label>
+                        {{ form.prevalentHyp() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="diabetes">Diabetes</label>
+                        {{ form.diabetes() }}
+                    </div>
+                    <div>
+                        <label for="totChol">Total Cholesterol</label>
+                        {{ form.totChol() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="sysBP">Systolic Blood Pressure</label>
+                        {{ form.sysBP() }}
+                    </div>
+                    <div>
+                        <label for="diaBP">Diastolic Blood Pressure</label>
+                        {{ form.diaBP() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="BMI">BMI</label>
+                        {{ form.BMI() }}
+                    </div>
+                    <div>
+                        <label for="heartRate">Heart Rate</label>
+                        {{ form.heartRate() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="glucose">Glucose Level</label>
+                        {{ form.glucose() }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        <label for="submit"></label>
+                        {{ form.submit(class="button") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('static/BackGround2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        .result-wrapper, .preventive-measures-wrapper {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            font-size: 28px;
+            color: green;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            font-size: 20px;
+        }
+        .preventive-measures {
+            text-align: left;
+            font-size: 18px;
+            color: #ddd;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-wrapper">
+            <h1>Cardiovascular Disease Prediction</h1>
+            <p>{{ prediction }}</p>
+        </div>
+        <div class="preventive-measures-wrapper">
+            <h2>Prevention and Healthy Tips</h2>
+            <ul class="preventive-measures">
+                {% if prediction == 'No' %}
+    <li>Maintain a healthy diet rich in fruits, vegetables, and whole grains while avoiding processed foods.</li>
+    <li>Exercise regularly, such as brisk walking, jogging, or cycling.</li>
+    <li>Monitor blood pressure and cholesterol levels regularly.</li>
+{% elif prediction == 'Yes' %}
+    <li>Follow a heart-healthy diet with low sodium, saturated fats, and cholesterol.</li>
+    <li>Engage in regular physical activity but consult a doctor for safe exercise routines.</li>
+    <li>Manage stress effectively through meditation, yoga, or relaxation techniques.</li>
+{% else %}
+    <li>No preventive measures available. Please consult a healthcare professional.</li>
+{% endif %}
+
+            </ul>
+        </div>
+        <a href="{{ url_for('cardio') }}" class="button">Back to Form</a>
+        <a href="{{ url_for('nephro_form') }}" class="button">Nephropathy Risk Prediction</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('/static/BackGround2.jpg'); /* Path relative to the 'static' folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .upload-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .upload-btn:hover {
+            background-color: #45a049;
+        }
+        .icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        .icons a {
+            color: white; /* Icon color */
+            text-decoration: none; /* Remove underline from icons */
+        }
+        .icons a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+        .about-us {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            color: white;
+            margin-top: 50px;
+        }
+        .about-us h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        .about-us p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="{{ message[1] }}">{{ message[0] }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="post" enctype="multipart/form-data" class="container">
+        {{ form.hidden_tag() }}
+        {{ form.image(class="upload-btn") }}<br><br>
+        {{ form.submit(class="upload-btn") }}
+    </form>
+
+    <div class="about-us">
+        <h2>About Us</h2>
+        <p>Our web application is dedicated to helping individuals detect various complications associated with diabetes. The core features of our application include:</p>
+        <ul style="text-align: left;">
+            <li>Users need to log in or register to access the system.</li>
+            <li>Users can upload their medical scans for analysis.</li>
+            <li>Our system provides predictions of the uploaded scans.</li>
+            <li>We also offer preventive measures based on the analysis results.</li>
+        </ul>
+    </div>
+</body>
+</html>

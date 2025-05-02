@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nephropathy Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('static/BackGround2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+        }
+        .result-wrapper, .preventive-measures-wrapper {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 30px; /* Increased padding for more space */
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px; /* Increased maximum width */
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            font-size: 28px; /* Increased font size for headers */
+            color: green;
+            margin-bottom: 15px;
+        }
+        p, ul {
+            font-size: 20px; /* Increased font size for text */
+        }
+        .preventive-measures {
+            text-align: left;
+            font-size: 18px; /* Slightly larger font size for the list */
+            color: #ddd;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 12px 25px; /* Increased padding for the button */
+            font-size: 20px; /* Larger font size for the button */
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Full width for submit button */
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-wrapper">
+            <h1>Nephropathy Prediction Result</h1>
+            <p>{{ result }}</p>
+        </div>
+        <div class="preventive-measures-wrapper">
+            <h2>Prevention and Healthy Tips</h2>
+            <ul class="preventive-measures">
+                {% if result == 'No diabetic nephropathy detected' %}
+                    <li>Maintain a balanced diet rich in fruits, vegetables, and whole grains. Avoid excessive salt and processed foods.</li>
+                    <li>Engage in regular physical activity such as walking or cycling to manage your health.</li>
+                    <li>Schedule regular check-ups with your healthcare provider to monitor kidney function and overall health.</li>
+                {% elif result == 'Diabetic nephropathy detected' %}
+                    <li>Regularly monitor blood sugar levels and adhere to prescribed medications to control diabetes.</li>
+                    <li>Follow a kidney-friendly diet low in sodium, potassium, and phosphorus, and rich in essential nutrients.</li>
+                    <li>Manage blood pressure effectively with lifestyle changes and prescribed medications.</li>
+                {% else %}
+                    <li>No preventive measures available. Please contact your healthcare provider for guidance.</li>
+                {% endif %}
+            </ul>
+        </div>
+        <a href="{{ url_for('nephro_form') }}" class="button">Back to Form</a>
+        <a href="{{ url_for('cardio') }}" class="button">Cardiovascular Risk Prediction</a>
+    </div>
+</body>
+</html>

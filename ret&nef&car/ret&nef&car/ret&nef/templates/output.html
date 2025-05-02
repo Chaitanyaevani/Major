@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('static/BackGround2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1, h2 {
+            font-size: 28px;
+            color: green;
+            margin-bottom: 20px;
+        }
+        p, li {
+            font-size: 18px;
+            color: white;
+        }
+        .nephropathy-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nephropathy-button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Analysis Result</h1>
+    <p>Result: {{ result }}</p>
+    <p>Class Label: {{ class_label }}</p>
+
+    <h2>Preventive Measures</h2>
+    <ul>
+        {% for measure in preventive_measures %}
+            <li>{{ measure }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Nephropathy Button -->
+    <button class="nephropathy-button" onclick="window.location.href='/nephropathy-form'">Nephropathy</button>
+</body>
+</html>
